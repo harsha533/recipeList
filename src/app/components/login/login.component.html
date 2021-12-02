@@ -1,0 +1,29 @@
+<div class="loading-indicator" *ngIf="loading">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+
+<p-message severity="warn" *ngIf="errorMessage" [text]="errorMessage" styleClass="p-mr-2"></p-message>  
+
+<div class="p-fluid p-formgrid p-grid" style="margin: 20px;">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmitForm(loginForm)">
+        <div class="p-field p-col">
+            <label for="email">Email</label>
+            <input id="email" type="email" pInputText name="email" [(ngModel)]="email" required email>
+        </div>
+        <div class="p-field p-col">
+            <label for="password">Password</label>
+            <input id="password" type="password" pInputText name="password" [(ngModel)]="password"
+            required minlength="6">
+        </div>
+        <div class="p-grid">
+            <div class="p-field p-col-6">
+                <button pButton pRipple type="submit" [disabled]="!loginForm.valid" label="SignUp"></button>
+            </div>
+            <div class="p-field p-col-6">
+                <button pButton pRipple type="button" label="login"
+                (click)="onSwitchMode()"></button>
+            </div>
+        </div>
+       
+    </form>
+</div>

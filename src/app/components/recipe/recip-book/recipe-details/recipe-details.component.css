@@ -1,0 +1,8 @@
+
+ :host ::ng-deep .p-orderlist-controls{
+        display: none;
+    }
+
+    :host ::ng-deep .p-orderlist-list{
+        min-height: 5rem;
+    }

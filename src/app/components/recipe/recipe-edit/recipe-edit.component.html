@@ -1,0 +1,53 @@
+<div class="p-fluid">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+        <div class="p-grid">
+            <div class="p-col-2">
+                <p-button label="Save" [disabled]="recipeForm.invalid" type="submit" class="p-button-danger"></p-button>
+            </div>
+            <div class="p-col-2">
+                <p-button label="Cancel" type="button"  class="p-button-warning" (click)="clearForm()"></p-button>
+            </div>
+        </div>
+        <div class="p-grid">
+
+            <div class="p-col-12">
+                <div class="p-grid">
+                    <label class="p-col-6" for="name">Name</label>
+                    <input class="p-col-6" type="text" id="name" formControlName="name" pInputText />
+                </div>
+
+            </div>
+            <div class="p-col-12">
+                <div class="p-grid">
+                    <label class="p-col-6" for="imageurl">ImageURL</label>
+                    <input class="p-col-6" type="text" id="imageurl" name="imageURL" formControlName="imageURL"  pInputText />
+                </div>
+
+            </div>
+            <div class="p-col-12">
+                <div class="p-grid">
+                    <label class="p-col-6" for="description">Description</label>
+                    <textarea class="p-col-6" rows="5" cols="30" formControlName="description" pInputTextarea></textarea>
+                </div>
+            </div>
+            <div class="p-col-12" formArrayName="ingredients">
+                <div class="p-grid" *ngFor="let item of ingredient.controls; let i = index;" [formGroupName]="i">
+
+                      
+                    <input class="p-col-4" type="text" 
+                    formControlName="name" pInputText>
+                   <input class="p-col-4" min="0" type="number"
+                   formControlName="amount"  pInputText>
+                   <button pButton pRipple type="button" icon="pi pi-times"
+                       class="p-button-rounded p-button-danger p-button-text"
+                       (click)="deleteIngredient(i)"></button>
+                   
+                </div>
+            </div>
+            <hr>
+            <div>
+                <p-button type="button" label="Add Ingredient" (click)="addIngredient()" class="p-button-warning"></p-button>
+            </div>
+        </div>
+    </form>
+</div>

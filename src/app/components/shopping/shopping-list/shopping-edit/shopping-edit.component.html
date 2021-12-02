@@ -1,0 +1,35 @@
+<div style="margin: 10px;"> 
+    <form [formGroup]="ingredientForms">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" formControlName="name" pInputText> 
+                    <label for="float-input">Name</label>
+                    <div *ngIf="name?.touched && name?.invalid">
+                        <small *ngIf="name?.errors?.required" id="username2-help" class="p-error">Name field is required.</small>
+                    </div>
+                   
+                </span>
+            </div>
+            <div class="p-col-12">
+                <span class="p-float-label">
+                    <input id="float-input" type="number" formControlName="amount" pInputText> 
+                    <label for="float-input">Amount</label>
+                    <div *ngIf="amount?.touched && amount?.invalid">
+                        <small *ngIf="amount?.errors?.required" id="username2-help" class="p-error">Amount field is required.</small>
+                    </div>
+                    
+                </span>
+            </div>
+            <div class="p-col-1">
+                <button pButton pRipple type="button" label="Add" class="p-button-rounded" [disabled]="ingredientForms.invalid" (click)="addShoppingList()"></button>
+            </div>
+            <div class="p-col-1">
+                <button pButton pRipple type="button" label="Delete" class="p-button-rounded p-button-danger" (click)="deleteIngredient()"></button>
+            </div>
+            <div class="p-col-1">
+                <button pButton pRipple type="button" label="Clear" class="p-button-rounded p-button-help"(click)="clearForm()"></button>
+            </div>
+        </div>
+    </form>
+</div>

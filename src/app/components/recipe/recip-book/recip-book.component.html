@@ -1,0 +1,14 @@
+<div class="p-grid">
+    <div class="p-col-5">
+        <app-recipe-list ></app-recipe-list>
+    </div>
+    <div class="p-col-7">
+        <router-outlet></router-outlet>
+        <!-- <app-recipe-details *ngIf="selectedRecipe; else recipeDetails" [recipeFromRecipeBook]="selectedRecipe">
+        </app-recipe-details>
+        <ng-template #recipeDetails>
+            Please select recipes to see the details.
+        </ng-template> -->
+    </div>
+
+</div>

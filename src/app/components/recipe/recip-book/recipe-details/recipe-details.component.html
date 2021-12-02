@@ -1,0 +1,26 @@
+<div>
+    <div class="p-grid">
+        <div class="p-col-12">
+            <img [src]="recipeFromRecipeBook.imagePath" alt="">
+        </div>
+        <div class="p-col-12">
+            <h3>{{recipeFromRecipeBook.name}}</h3>
+        </div>
+        <div class="p-col-12">
+            <p-dropdown [options]="manageRecipe" [(ngModel)]="selectedManageRecipe" optionLabel="name" placeholder="Mange Recipe" (ngModelChange)="toShoppingList($event)"></p-dropdown>
+        </div>
+        <div class="p-col-12">
+            <p> {{recipeFromRecipeBook.description}} </p>
+        </div>
+        <div class="p-col-12">
+            <h3>Ingredients-What else you need?</h3>
+            <p-orderList [value]="recipeFromRecipeBook.ingredients">
+                <ng-template let-ingredient pTemplate="item">
+                    <div>
+                        <div style="font-size:14px;float:left">{{ingredient.name}} - {{ingredient.amount}}</div>
+                    </div>
+                </ng-template>
+            </p-orderList>
+        </div>
+    </div>
+</div>
